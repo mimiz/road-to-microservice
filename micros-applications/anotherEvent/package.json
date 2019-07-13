@@ -1,0 +1,31 @@
+{
+  "name": "micro-another-event",
+  "version": "1.0.0",
+  "main": "build/index.js",
+  "license": "MIT",
+  "scripts": {
+    "prebuild": "rimraf build",
+    "build": "tsc",
+    "dev": "nodemon -e ts -w ./src --exec node -r ts-node/register src/index.ts",
+    "start": "node build/index.js",
+    "lint": "tslint src/**/*.ts test/**/*.ts",
+    "format": "prettier --check \"**/*.ts\"",
+    "lint:fix": "yarn lint --fix",
+    "format:fix": "yarn format --write",
+    "qa": "yarn lint && yarn lint format",
+    "qa:fix": "yarn lint:fix && yarn lint:fix format"
+  },
+  "dependencies": {
+    "rabbitmq-event-manager": "^1.0.11"
+  },
+  "devDependencies": {
+    "@types/node": "^12.6.2",
+    "nodemon": "^1.19.1",
+    "prettier": "^1.18.2",
+    "rimraf": "^2.6.3",
+    "ts-node": "^8.3.0",
+    "tslint": "^5.18.0",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.5.3"
+  }
+}
